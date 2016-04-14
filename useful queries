@@ -1,0 +1,8 @@
+select * from batting, fielding, teams where batting.teamID = 'TRO' and batting.yearID = '1871' and batting.playerID = fielding.playerID and teams.yearID = 1871 AND teams.teamID = 'TRO'
+//selects all batting/fielding/team stats for a given team name and year (by player)
+
+select batting.*, fielding.*, teams.W/(teams.W + teams.L) as percent from batting, fielding, teams where batting.teamID = 'TRO' and batting.yearID = '1871' and batting.playerID = fielding.playerID and teams.yearID = 1871 AND teams.teamID = 'TRO'
+//improved: only gives us the winning percentage
+
+select batting.*, fielding.*, teams.W/(teams.W + teams.L) as percent from batting, fielding, teams where batting.yearID = '1871' and batting.playerID = fielding.playerID and teams.yearID = 1871 and teams.teamID = batting.teamID
+//improved: all teams from 1871

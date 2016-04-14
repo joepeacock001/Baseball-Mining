@@ -1,0 +1,17 @@
+package dmTest;
+
+import org.neuroph.core.*;
+import org.neuroph.util.*;
+
+public class DMtestClass {
+
+	public static void main(String args)
+	{
+	nNet = new NeuralNetwork();
+	nNet = NeuralNetwork.load( "tronnet.nnet" );
+	neuralInputCount = nNet.getInputsCount();
+	neuralOutputCount = nNet.getOutputsCount();
+	setXY();
+	openPanel ( titel +" Demo with file: tronnet.nnet ");
+	
+}
