@@ -6,3 +6,11 @@ select batting.*, fielding.*, teams.W/(teams.W + teams.L) as percent from battin
 
 select batting.*, fielding.*, teams.W/(teams.W + teams.L) as percent from batting, fielding, teams where batting.yearID = '1871' and batting.playerID = fielding.playerID and teams.yearID = 1871 and teams.teamID = batting.teamID
 //improved: all teams from 1871
+
+select batting.G, (batting.AB/batting.G), (batting.R/batting.G), (batting.H/batting.G), (batting.2B/batting.G), (batting.3B/batting.G), (batting.HR/batting.G), (batting.RBI/batting.G), (batting.SB/batting.G), (batting.BB/batting.G), (batting.SO/batting.G),  fielding.InnOuts, (fielding.PO/fielding.InnOuts), (fielding.A/fielding.InnOuts),(fielding.E/fielding.InnOuts),(fielding.DP/fielding.InnOuts),(fielding.ZR/fielding.InnOuts), teams.W/(teams.W + teams.L) as percent from batting, fielding, teams where (batting.yearID%10 = 0) and batting.playerID = fielding.playerID and (teams.yearID%10 = 0) and teams.teamID = batting.teamID
+/
+
+select batting.G, (batting.AB/batting.G), (batting.R/batting.G), (batting.H/batting.G), (batting.2B/batting.G), (batting.3B/batting.G), (batting.HR/batting.G), (batting.RBI/batting.G), (batting.SB/batting.G), (batting.BB/batting.G), (batting.SO/batting.G), fielding.InnOuts, (fielding.PO/fielding.InnOuts), (fielding.A/fielding.InnOuts),(fielding.E/fielding.InnOuts),(fielding.DP/fielding.InnOuts),(fielding.ZR/fielding.InnOuts), teams.W/(teams.W + teams.L) as percent from batting, fielding, teams where batting.yearID = 1998 and batting.playerID = fielding.playerID and teams.yearID = 1998 and teams.teamID = batting.teamID and fielding.YearID = 1998;
+//works 
+
+
