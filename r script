@@ -1,0 +1,39 @@
+#average error: 0.0028903135
+
+library(neuralnet)
+
+dataset <- read.csv("data.csv")
+
+trainset <- dataset[1:6500, ]
+
+testset <- dataset[6501:8500, ]
+
+bbNet <- neuralnet(result ~ a+b+c+d+e+f+g+h+i+j+k+l+m+n+o, trainset, hidden = 4, lifesign = "minimal", linear.output = FALSE, threshold = 0.1)
+
+temp_test <- subset(testset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = testset$result, prediction = bbNet.results$net.result)
+
+write.csv(results, file="o2.csv")
+
+##############################################################################################
+
+library(neuralnet)
+
+dataset <- read.csv("data.csv")
+
+trainset <- dataset[1:6500, ]
+
+testset <- dataset[6501:8500, ]
+
+bbNet <- neuralnet(result ~ a+b+c+d+e+f+g+h+i+j+k+l+m+n+o, trainset, hidden = 6, lifesign = "minimal", linear.output = FALSE, threshold = 0.1)
+
+temp_test <- subset(testset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = testset$result, prediction = bbNet.results$net.result)
+
+write.csv(results, file="o2.csv")
