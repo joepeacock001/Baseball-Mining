@@ -14,3 +14,16 @@ select batting.G, (batting.AB/batting.G), (batting.R/batting.G), (batting.H/batt
 //works 
 
 
+
+###################
+
+select batting.G, (batting.AB/batting.G), (batting.R/batting.G), (batting.H/batting.G), (batting.HR/batting.G), (batting.RBI/batting.G), (batting.SB/batting.G), (batting.BB/batting.G), (batting.SO/batting.G), fielding.G, (fielding.PO/fielding.G), (fielding.A/fielding.G),(fielding.E/fielding.G),(fielding.DP/fielding.G),(fielding.ZR/fielding.G), teams.W/(teams.W + teams.L) as percent from batting, fielding, teams where batting.yearID = 2015 and batting.playerID = fielding.playerID and teams.yearID = 2015 and teams.teamID = batting.teamID and fielding.YearID = 2015 and teams.teamID = 'MIN' and batting.G > 0 and fielding.G > 0; 
+#specific team
+
+select batting.G, (batting.AB/batting.G), (batting.R/batting.G), (batting.H/batting.G), (batting.HR/batting.G), (batting.RBI/batting.G), (batting.SB/batting.G), (batting.BB/batting.G), (batting.SO/batting.G), fielding.G, (fielding.PO/fielding.G), (fielding.A/fielding.G),(fielding.E/fielding.G),(fielding.DP/fielding.G),(fielding.ZR/fielding.G), teams.W/(teams.W + teams.L) as percent from batting, fielding, teams where batting.yearID > 2010 and batting.playerID = fielding.playerID and teams.yearID > 2010 and teams.teamID = batting.teamID and fielding.YearID > 2010 and batting.yearID = fielding.yearID and batting.yearID = teams.yearID and batting.G > 0 and fielding.G > 0; 
+
+#training set
+
+
+
+KCA (13) MIN 14 CLE 15 CHA 16 DET 17 TOR 18 NYA 19 BAL 20 TBA 21 BOS 22

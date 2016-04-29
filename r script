@@ -1,14 +1,13 @@
-#average error: 0.0028903135
-
+#set up neural net
 library(neuralnet)
 
 dataset <- read.csv("data.csv")
 
-trainset <- dataset[1:6500, ]
+trainset <- dataset[1:10000, ]
 
-testset <- dataset[6501:8500, ]
+testset <- dataset[10001:11000, ]
 
-bbNet <- neuralnet(result ~ a+b+c+d+e+f+g+h+i+j+k+l+m+n+o, trainset, hidden = 4, lifesign = "minimal", linear.output = FALSE, threshold = 0.1)
+bbNet <- neuralnet(results ~ a+b+c+d+e+f+g+h+i+j+k+l+m+n+o, trainset, hidden = 4, lifesign = "minimal", linear.output = FALSE, threshold = 0.1)
 
 temp_test <- subset(testset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
 
@@ -18,22 +17,19 @@ results <- data.frame(actual = testset$result, prediction = bbNet.results$net.re
 
 write.csv(results, file="o2.csv")
 
-##############################################################################################
+###############################################################
 
-library(neuralnet)
+teamset <- read.csv("KCA.csv")
 
-dataset <- read.csv("data.csv")
-
-trainset <- dataset[1:6500, ]
-
-testset <- dataset[6501:8500, ]
-
-bbNet <- neuralnet(result ~ a+b+c+d+e+f+g+h+i+j+k+l+m+n+o, trainset, hidden = 6, lifesign = "minimal", linear.output = FALSE, threshold = 0.1)
-
-temp_test <- subset(testset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
 
 bbNet.results <- compute(bbNet, temp_test)
 
-results <- data.frame(actual = testset$result, prediction = bbNet.results$net.result)
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
 
-write.csv(results, file="o2.csv")
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="KCARes.csv")
+

@@ -1,0 +1,143 @@
+teamset <- read.csv("MIN.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="MINRes.csv")
+
+##
+
+teamset <- read.csv("CLE.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="CLERes.csv")
+
+##
+
+teamset <- read.csv("CHA.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="CHARes.csv")
+
+##
+
+teamset <- read.csv("DET.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="DETRes.csv")
+
+##
+
+teamset <- read.csv("TOR.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="TORRes.csv")
+
+##
+
+teamset <- read.csv("NYA.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="NYARes.csv")
+
+##
+
+teamset <- read.csv("BAL.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="BALRes.csv")
+
+##
+
+teamset <- read.csv("TBA.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="TBARes.csv")
+
+##
+
+teamset <- read.csv("BOS.csv")
+
+temp_test <- subset(teamset, select = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"))
+
+bbNet.results <- compute(bbNet, temp_test)
+
+results <- data.frame(actual = teamset$result, prediction = bbNet.results$net.result)
+
+results$addValue <- results$prediction - 0.5
+
+results <- rbind(results, colSums(results))
+
+write.csv(results, file="BOSRes.csv")
+
+

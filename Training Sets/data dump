@@ -1,0 +1,27 @@
+Call:
+lm(formula = res$predicted ~ res$actual)
+
+Coefficients:
+(Intercept)   res$actual  
+   -1.15664      1.95434  
+
+> summary(model)
+
+Call:
+lm(formula = res$predicted ~ res$actual)
+
+Residuals:
+        Min          1Q      Median          3Q         Max 
+-0.15123676 -0.01033624  0.01018024  0.04817403  0.08204317 
+
+Coefficients:
+              Estimate Std. Error  t value  Pr(>|t|)   
+(Intercept) -1.1566404  0.3198903 -3.61574 0.0068246 **
+res$actual   1.9543404  0.6193788  3.15532 0.0134897 * 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07388815 on 8 degrees of freedom
+Multiple R-squared:  0.5544681,	Adjusted R-squared:  0.4987766 
+F-statistic: 9.956065 on 1 and 8 DF,  p-value: 0.01348974
+
